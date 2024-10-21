@@ -1,21 +1,29 @@
+
 package org.example;
+
 import java.util.Scanner;
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Please enetr a number between 0-9");
-        Scanner myscan = new Scanner(System.in);
-        String input = myscan.nextLine();
+        Scanner scanner = new Scanner(System.in);
 
-        int myNum = Integer.parseInt(input);
-        if(myNum >= 0 && myNum <= 9){
-            System.out.println("you entered " + myNum);
+        while (true) {
+            try {
+                System.out.println("Please enter a number between 0-9");
+                String input = scanner.nextLine();
+                int myNum = Integer.parseInt(input);
+
+                if (myNum >= 0 && myNum <= 9) {
+                    System.out.println("You entered " + myNum);
+                    break;
+                } else {
+                    System.out.println("Invalid input. Number must be between 0 and 9.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Not a valid number. Please enter a digit.");
+            }
         }
 
-        else {
-            System.out.println("Not a valid number");
-        }
-
+        scanner.close();
     }
 }
